@@ -33,11 +33,11 @@
 
 #3
 
-products = [
-    {"name":"Laptop" , "price":150000 , "stock":0},
-    {"name":"Mouse" , "price":30000 , "stock":50},
-    {"name":"Keyboard" , "price":40000 , "stock":20},
-    {"name":"Monitor" , "price":200000 , "stock":10},
-]
+#products = [
+#    {"name":"Laptop" , "price":150000 , "stock":0},
+#    {"name":"Mouse" , "price":30000 , "stock":50},
+#    {"name":"Keyboard" , "price":40000 , "stock":20},
+#    {"name":"Monitor" , "price":200000 , "stock":10},
+#]
 
-print(list(filter(lambda x:x["price"] < 50000 and x["stock"] > 0 , products)))
+#print(list(filter(lambda x:x["price"] < 50000 and x["stock"] > 0 , products)))

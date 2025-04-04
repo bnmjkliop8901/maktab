@@ -1,4 +1,3 @@
-from datetime import datetime
 
 class Customer:
     """Represents a customer with name, phone, haircut preferences, and appointments."""
@@ -96,33 +95,32 @@ class Financials:
         return self.daily_revenue - self.expenses
 
 
-# Example Usage:
-
-# Creating customers and a barber
-c1 = Customer("Soheil", 9919892093, "Buzz Cut")
-c2 = Customer("Mmd", 9214910215, "Kachal")
-b1 = Barber("Ali", 9214910214, 20000, 0.1)
-
-# Logging work and commission
-b1.log_hours(10)
-b1.add_commission(10000)
-print(b1.hours_worked)  # ✅ Hours worked
-print(b1.total_earnings)  # ✅ Total earnings
-
-# Booking appointments
-appointment1 = Appointment(c1, b1, "April 1, 2:00 PM", "Fade Cut", 200000)
-appointment2 = Appointment(c1, b1, "April 1, 2:00 PM", "Fade Cut", 200000)  # Duplicate booking attempt
-
-print(b1.book_appointment(appointment1))  # ✅ Successfully booked
-print(c1.cancel_appointment("April 1, 2:00 PM"))
-print(b1.book_appointment(appointment2))  # ❌ Should prevent double booking
-
-# Cancel appointment
 
 
-# Financial tracking
-financials = Financials()
-financials.add_income(50000)
-financials.add_expense(10000)
+c1 = Customer("soheil" , 9919892093 , "kotah")
+c2 = Customer("mmd" , 9214910215 , "kotah")
+print(c1.appointments)
 
-print(f"Profit: ${financials.calculate_profit()}")  # ✅ Net profit calculation
+b1 = Barber("ali" , 9214910214 , 10000 , 0.1)
+b2 = Barber("Dog" , 921 , 20000 , 0.2)
+
+ap1 = Appointment(c1 , b1 , "April 1 , 2:00" , "buzz cut" , 200000)
+ap2 = Appointment(c2 , b1 , "April 1 , 2:00" , "buzz cut" , 200000)
+print(c1.appointments)
+
+f1 = Financials()
+f1.add_income(200000)
+f1.add_expense(20000)
+print(f1.calculate_profit())
+
+
+print(b1.book_appointment(ap1))
+print(c1.appointments)
+print(b1.book_appointment(ap2))
+print(c1.appointments)
+
+f1.add_income(ap1.barber, ap1.service, ap1.price)
+
+
+print(f"Top Barber: {f1.top_barber()}")
+print(f"Most Popular Service: {f1.most_popular_service()}")

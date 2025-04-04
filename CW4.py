@@ -70,23 +70,23 @@
 
 
 
-#4
+#5
 
-from datetime import datetime
+#from datetime import datetime
 
-def restrict_hours(start , end):
-    def my_decorator(func):
-        def wrapper(*args , **kwargs):
-            current_hour = datetime.now().hour
-            if start <= current_hour <= end:
-                return func(*args , **kwargs)
-            else:
-                print(f"the function {func.__name__} can be done in this time")
-        return wrapper
-    return my_decorator
+#def restrict_hours(start , end):
+#    def my_decorator(func):
+#        def wrapper(*args , **kwargs):
+#            current_hour = datetime.now().hour
+#            if start <= current_hour <= end:
+#                return func(*args , **kwargs)
+#            else:
+#                print(f"the function {func.__name__} can be done in this time")
+#        return wrapper
+#    return my_decorator
 
-@restrict_hours(start=9 , end=22)
-def do_work():
-    print("working...") 
+#@restrict_hours(start=9 , end=22)
+#def do_work():
+#    print("working...") 
 
-do_work()
+#do_work()

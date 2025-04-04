@@ -1,5 +1,3 @@
-from datetime import datetime
-
 class Customer:
 
     def __init__(self, name, phone, haircut_preferences):
@@ -82,27 +80,44 @@ class Financials:
     def __init__(self):
         self.daily_revenue = 0
         self.expenses = 0
+        self.barber_earnings = {} 
+        self.service_popularity = {}
 
-    def add_income(self, amount):
-
+    def add_income(self, barber, service, amount):
+        
         self.daily_revenue += amount
-
+        
+        if barber.name in self.barber_earnings:
+            self.barber_earnings[barber.name] += amount
+        else:
+            self.barber_earnings[barber.name] = amount
+        
+        if service in self.service_popularity:
+            self.service_popularity[service] += 1
+        else:
+            self.service_popularity[service] = 1
+        
     def add_expense(self, amount):
-
         self.expenses += amount
 
     def calculate_profit(self):
-
         return self.daily_revenue - self.expenses
+    
+    def top_barber(self):
+        return max(self.barber_earnings, key=self.barber_earnings.get)
+
+    def most_popular_service(self):
+        return max(self.service_popularity, key=self.service_popularity.get)
 
 
 
 
 
-c1 = Customer("Soheil", 9919892093, "Buzz Cut")
+
+c1 = Customer("Soheil", 9919892093, "Cut")
 c2 = Customer("Mmd", 9214910215, "Kachal")
 b1 = Barber("Ali", 9214910214, 20000, 0.1)
-
+b2 = Barber("Dog" , 921 , 20000 , 0.2)
 
 b1.log_hours(10)
 b1.add_commission(10000)
@@ -110,8 +125,8 @@ print(b1.hours_worked)
 print(b1.total_earnings)  
 
 
-appointment1 = Appointment(c1, b1, "April 1, 2:00 PM", "Fade Cut", 200000)
-appointment2 = Appointment(c1, b1, "April 1, 2:00 PM", "Fade Cut", 200000)  
+appointment1 = Appointment(c1, b1, "April 1, 2:00 PM", "Cut", 200000)
+appointment2 = Appointment(c1, b1, "April 1, 2:00 PM", "Cut", 200000)  
 
 print(b1.book_appointment(appointment1))  
 print(c1.cancel_appointment("April 1, 2:00 PM"))
@@ -122,7 +137,13 @@ print(b1.book_appointment(appointment2))
 
 
 financials = Financials()
-financials.add_income(50000)
+financials.add_income(b1 , "Cut" ,1)
 financials.add_expense(10000)
 
-print(f"Profit: ${financials.calculate_profit()}")  
+ 
+
+print(f"Top Barber: {financials.top_barber()}")
+print(f"Most Popular Service: {financials.most_popular_service()}")
+
+
+print(financials.service_popularity)

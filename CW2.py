@@ -132,15 +132,15 @@
 
 #12
 
-from collections import Counter 
-def func():
-    with open("data.txt" , "r") as file:
-        x = file.read()
-    words = x.split()
-    print(words)
-    word_count = Counter(words)
-    print(word_count)
-    for word , count in word_count.items():
-        print(f"{word}: {count}")
-
-func()
+#from collections import Counter 
+#def func():
+#    with open("data.txt" , "r") as file:
+#        x = file.read()
+#    words = x.split()
+#    print(words)
+#    word_count = Counter(words)
+#    print(word_count)
+#    for word , count in word_count.items():
+#        print(f"{word}: {count}")
+#
+#func()

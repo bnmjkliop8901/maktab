@@ -122,11 +122,17 @@
 
 #12
 
-def func(list_1):
-    result = []
-    for i in list_1:
-        if list_1.count(i) > 1 and i not in result:
-            result.append(i)
-    return result
+#def func(list_1):
+#    result = []
+#    for i in list_1:
+#        if list_1.count(i) > 1 and i not in result:
+#            result.append(i)
+#    return result
+#
+#print(func([3,2,3]))
 
-print(func([3,2,3]))
+
+
+#13
+#14
+#15

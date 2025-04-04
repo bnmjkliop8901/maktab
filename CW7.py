@@ -18,6 +18,7 @@ class Test:
     @read_file.deleter
     def read_file(self):
         os.remove(self.name)
+        print("file_removed")
 
 t1 =Test("soheil.txt")
 t1.read_file
