@@ -59,3 +59,7 @@
 #number = int(input("please enter number: "))
 #
 #print(int(((bin(number)[2:])[::-1]) , 2))
+
+
+n = int(input("please enter a num: "))
+print(int((bin(n)[2:])[::-1] , 2))

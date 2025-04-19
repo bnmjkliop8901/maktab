@@ -15,7 +15,7 @@ class Customer:
         appointment_to_cancel = next((appt for appt in self.appointments if appt.time == time), None)
 
         if appointment_to_cancel:
-            self.appointments.remove(appointment_to_cancel)
+
             appointment_to_cancel.barber.gg.remove(appointment_to_cancel)
             return f"Appointment for {self.name} at {time} has been cancelled."
         else:
