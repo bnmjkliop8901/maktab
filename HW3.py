@@ -14,7 +14,6 @@
 #print(reduce(lambda x , _ : x + 1 , v, 0))
 
 
-
 #2
 
 #students = [
@@ -29,8 +28,16 @@
 #y = list(map(lambda x: f"{x["name"]}" , z))
 #print(y)
 
+students = [
+   {"name":"Ali" , "grade" : 18},
+   {"name":"Reza" , "grade" : 25},
+   {"name":"Shima" , "grade" : 19},
+   {"name":"Sara" , "grade" : 14}
+]
 
-
+z = list(filter(lambda student : student["grade"] > 17 , students))
+m = list(map(lambda student: student["name"] , z))
+print(m)
 #3
 
 #products = [
